@@ -1,36 +1,113 @@
 import React, { Component } from 'react';
-import { AppRegistry, FlatList, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, SectionList, Text, Platform, Alert, Image } from 'react-native';
 
 export default class ListView extends Component {
-  render() {
+  render() { 
+    var Cervezas = [
+      { 
+        "name" : 'Bohemian Pilsener',
+        "photo" : require('./bohemian_pilsener.png'),
+        "description" : 'Bohemian Pilsener, una cerveza balanceada, de color dorado intenso. Realizada con lúpulo patagónico, con gran cuerpo y amargor equilibrado',
+        'characteristics' : ''
+      },
+      { 
+        "name" : 'APA',
+        "photo" : require('./APA.png'),
+        "description" : 'Cerveza de alta fermentación con un aroma y sabor marcado a lúpulos americanos. Tiene notas cítricas y tiene baja maltosidad.',
+        'characteristics' : ''
+      },
+      { 
+        "name" : 'Saison',
+        "photo" : require('./saison.png'),
+        "description" : 'Una cerveza de origen belga, ideal para el calor. La levadura le aporta aroma y sabores frutados y especiados. Por su final seco, da ganas de tomarla sin parar!',
+        'characteristics' : ''
+      }];
+    //var Comidas = ['Bastones de Muzzarella', 'Papas Fritas', 'Hamburguesas'];
+    //var Vinos = ['Vino Toro', 'Vasco Viejo'];
+
     return (
-      <View style={styles.container}>
-        <FlatList
-          data={[
-            {key: 'Devin'},
-            {key: 'Jackson'},
-            {key: 'James'},
-            {key: 'Joel'},
-            {key: 'John'},
-            {key: 'Jillian'},
-            {key: 'Jimmy'},
-            {key: 'Julie'},
+      <View style={{ marginTop : (Platform.OS) == 'ios' ? 20 : 0 }} >
+      <SectionList
+          sections={[
+            { title: 'Cervezas', data: Cervezas }
+            //{ title: 'Comidas', data: Comidas },
+            //{ title: 'Vinos', data: Vinos },
           ]}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+
+          renderSectionHeader={ ({section}) => <Text style={styles.SectionHeaderStyle}> { section.title } </Text> }
+          renderItem={ ({item}) => 
+          <View style={styles.SectionListItemStyle}>
+            <Image style={{width: 127, height: 150}} source={item.photo}/>
+            <View style={styles.BeerContainerStyle}>
+              <Text style={styles.BeerTitleStyle}> { item.name } </Text>
+              <Text style={styles.BeerDescriptionStyle}>
+                { item.description }
+               </Text>
+              <Text style={styles.BeerCharacteristicsStyle}>IBU 47 - ALC 13 %</Text>
+            </View>
+          </View>
+          
+           }
+          keyExtractor={ (item, index) => index }
         />
-      </View>
-    );
+
+      </View> 
+    )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 22
-  },
-  item: {
+ 
+  SectionHeaderStyle:{
+    backgroundColor : '#5a0f0a',
+    fontSize : 20,
     padding: 10,
-    fontSize: 18,
-    height: 44,
+    color: '#fff',
   },
-})
+ 
+  SectionListItemStyle:{
+    flex:1,
+    flexDirection: 'row',
+    marginTop : 5,
+    height: 150,
+    backgroundColor : '#F5F5F5'
+  },
+
+  SectionListTextItemStyle:{
+    flex:1,
+    justifyContent: 'center', 
+    alignItems: 'center',
+    textAlign: 'center',
+    fontSize : 15,
+    color: '#000',
+    backgroundColor : '#F5F5F5'
+  },
+
+  BeerTitleStyle:{
+    marginTop: 10,
+    textAlign: 'center',
+    fontSize : 15,
+    padding: 5,
+    color: '#FFF',
+    backgroundColor : '#801926',
+  },
+
+  BeerDescriptionStyle : {
+    padding : 5,
+    fontSize : 13,
+  },
+  BeerCharacteristicsStyle : {
+    marginBottom: 10,
+    textAlign: 'center',
+    fontSize : 13,
+    padding: 5,
+    color: '#B29C7E'
+  },
+  BeerContainerStyle : {
+    flex:1,
+    alignItems:'flex-start',
+    flexDirection:'column',
+    justifyContent:'space-between'
+  },
+});
+

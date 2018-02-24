@@ -12,8 +12,8 @@ export default class HomeScreen extends Component {
   componentDidMount(){
     const { navigate } = this.props.navigation;
     this.timeoutHandle = setTimeout(()=>{
-      navigate('AuthenticationView')
-    }, 1000);
+      navigate('ListView')
+    }, 750);
   }
 
   render() {
