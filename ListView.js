@@ -37,7 +37,6 @@ export default class ListView extends Component {
           renderSectionHeader={ ({section}) => <Text style={styles.SectionHeaderStyle}> { section.title } </Text> }
           renderItem={ ({item}) => 
           <View style={styles.SectionListItemStyle}>
-            <Image style={{width: 20, height: 20}} source={item.photo}/>
             <Image style={{width: 127, height: 150}} source={item.photo}/>
             <View style={styles.BeerContainerStyle}>
               <Text style={styles.BeerTitleStyle}> { item.name } </Text>
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     borderColor: '#ddd',
-    borderBottomWidth: 0,
+    borderBottomWidth: 1,
     shadowColor: '#ccc',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
@@ -85,6 +84,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     marginTop: 10,
+    overflow: "hidden"
   },
 
   BeerTitleStyle:{
