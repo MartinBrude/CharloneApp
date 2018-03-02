@@ -37,6 +37,7 @@ export default class ListView extends Component {
           renderSectionHeader={ ({section}) => <Text style={styles.SectionHeaderStyle}> { section.title } </Text> }
           renderItem={ ({item}) => 
           <View style={styles.SectionListItemStyle}>
+            <Image style={{width: 20, height: 20}} source={item.photo}/>
             <Image style={{width: 127, height: 150}} source={item.photo}/>
             <View style={styles.BeerContainerStyle}>
               <Text style={styles.BeerTitleStyle}> { item.name } </Text>
@@ -63,24 +64,27 @@ const styles = StyleSheet.create({
     fontSize : 20,
     padding: 10,
     color: '#fff',
+    fontFamily : 'DINOT-BOLD'
   },
  
   SectionListItemStyle:{
     flex:1,
     flexDirection: 'row',
-    marginTop : 5,
+    marginTop : 10,
     height: 150,
-    backgroundColor : '#F5F5F5'
-  },
-
-  SectionListTextItemStyle:{
-    flex:1,
-    justifyContent: 'center', 
-    alignItems: 'center',
-    textAlign: 'center',
-    fontSize : 15,
-    color: '#000',
-    backgroundColor : '#F5F5F5'
+    backgroundColor : '#F5F5F5',
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: '#ddd',
+    borderBottomWidth: 0,
+    shadowColor: '#ccc',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10,
   },
 
   BeerTitleStyle:{
@@ -90,8 +94,8 @@ const styles = StyleSheet.create({
     padding: 5,
     color: '#FFF',
     backgroundColor : '#801926',
+    fontFamily : 'DINOT-Medium'
   },
-
   BeerDescriptionStyle : {
     padding : 5,
     fontSize : 13,
@@ -101,7 +105,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize : 13,
     padding: 5,
-    color: '#B29C7E'
+    color: '#B29C7E',
+    fontFamily : 'DINOT-Medium'
   },
   BeerContainerStyle : {
     flex:1,
