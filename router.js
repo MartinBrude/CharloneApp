@@ -7,7 +7,7 @@ import ListView from './ListView';
 
 export const Tabs = TabNavigator({
   HomeScreen: {
-    screen: HomeScreen,
+    screen: ListView,
   },
   ListView: {
     screen: ListView,

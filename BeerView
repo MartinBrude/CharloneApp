@@ -1,40 +1,34 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, SectionList, Text, Platform, Alert, Image } from 'react-native';
- 
-export default class ListView extends Component {
+  
+export default class BeerView extends ListView {
 
-    constructor(props) {
-      super(props);
-      this.state = {
-        Cervezas : [
-        {
-          "name" : 'Bohemian Pilsener',
-          "photo" : require('./bohemian_pilsener.png'),
-          "description" : 'Bohemian Pilsener, una cerveza balanceada, de color dorado intenso. Realizada con lúpulo patagónico, con gran cuerpo y amargor equilibrado',
-          "characteristics" : " "
-        },
-        { 
+  render() { 
+    var Cervezas = [
+      { 
+        "name" : 'Bohemian Pilsener',
+        "photo" : require('./bohemian_pilsener.png'),
+        "description" : 'Bohemian Pilsener, una cerveza balanceada, de color dorado intenso. Realizada con lúpulo patagónico, con gran cuerpo y amargor equilibrado',
+        'characteristics' : ''
+      },
+      { 
         "name" : 'APA',
         "photo" : require('./APA.png'),
         "description" : 'Cerveza de alta fermentación con un aroma y sabor marcado a lúpulos americanos. Tiene notas cítricas y tiene baja maltosidad.',
-        "characteristics" : " "
-        },
-        { 
+        'characteristics' : ''
+      },
+      { 
         "name" : 'Saison',
         "photo" : require('./saison.png'),
         "description" : 'Una cerveza de origen belga, ideal para el calor. La levadura le aporta aroma y sabores frutados y especiados. Por su final seco, da ganas de tomarla sin parar!',
-        "characteristics" : " "
-        }];
-      }
-  }
-
-  render() { 
+        'characteristics' : ''
+      }];
 
     return (
       <View style={{ marginTop : (Platform.OS) == 'ios' ? 20 : 0 }} >
       <SectionList
           sections={[
-            { title: 'Cervezas', data: this.state.Cervezas }
+            { title: 'Cervezas', data: Cervezas }
             //{ title: 'Comidas', data: Comidas },
             //{ title: 'Vinos', data: Vinos },
           ]}
