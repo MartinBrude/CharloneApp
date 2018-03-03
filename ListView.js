@@ -24,7 +24,7 @@ export default class ListView extends Component {
         "photo" : require('./saison.png'),
         "description" : 'Una cerveza de origen belga, ideal para el calor. La levadura le aporta aroma y sabores frutados y especiados. Por su final seco, da ganas de tomarla sin parar!',
         "characteristics" : " "
-        }];
+        }]
       }
   }
 
