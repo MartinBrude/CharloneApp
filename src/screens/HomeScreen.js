@@ -5,23 +5,24 @@
  */
 
 import React, { Component } from 'react';
-import {Platform, StyleSheet, Text, Image, View} from 'react-native';
+import {Platform, StyleSheet, Text, Image, View, StatusBar, NavigatorIOS} from 'react-native';
 
-export default class AuthenticationView extends Component {
-
+export default class HomeScreen extends Component {
+  
   componentDidMount(){
     const { navigate } = this.props.navigation;
     this.timeoutHandle = setTimeout(()=>{
       navigate('ListView')
-    }, 1000);
+    }, 750);
   }
-
 
   render() {
     return (
       <View style={styles.container}>
-
-      </View>
+        <Image 
+          style={{width: 200, height: 200}}
+          source={require('../images/logo.png')}/>
+        </View>
     );
   }
 }
@@ -32,5 +33,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFF',
-  }
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 });
