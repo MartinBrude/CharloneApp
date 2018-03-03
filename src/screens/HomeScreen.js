@@ -21,7 +21,7 @@ export default class HomeScreen extends Component {
       <View style={styles.container}>
         <Image 
           style={{width: 200, height: 200}}
-          source={require('./logo.png')}/>
+          source={require('../images/logo.png')}/>
         </View>
     );
   }
