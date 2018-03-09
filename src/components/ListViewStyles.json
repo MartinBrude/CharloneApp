@@ -28,6 +28,12 @@
     overflow: "hidden"
   },
 
+  ItemHeartIconStyle : {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+  },
+
   ItemContainerStyle : {
     flex:1,
     alignItems:'flex-start',
