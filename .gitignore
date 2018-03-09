@@ -4,3 +4,4 @@ android/local.properties
 android/.gradle/
 android/app/build
 android/build
+package-lock.json
