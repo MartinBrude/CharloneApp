@@ -7,14 +7,33 @@ import BeerView from './screens/BeerView';
 import FoodView from './screens/FoodView';
 import ProfileView from './screens/ProfileView';
 
-export const Tabs = TabNavigator({
-  BeerView: {
+const routes = {
+  'Cervezas': {
     screen: BeerView,
+    icon: 'ios-beer'
   },
-  FoodView: {
+  'Comida': {
     screen: FoodView,
+    icon: 'ios-pizza'
   },
-  Profile: {
-  	screen: ProfileView
+  'Perfil': {
+    screen: ProfileView,
+    icon: 'ios-person'
   }
+};
+
+export const Tabs = TabNavigator(routes,{
+  navigationOptions: ({ navigation }) => ({
+    tabBarIcon: ({ focused, tintColor }) => {
+      let { routeName } = navigation.state;
+      let iconName = routes[routeName].icon;
+
+      iconName = !focused ? iconName + '-outline' : iconName;
+      
+      return <Icon
+      name={iconName}
+      type='ionicon'
+      color='#000' />;
+    },
+  })
 });
