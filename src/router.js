@@ -5,15 +5,16 @@ import { Icon } from 'react-native-elements';
 import HomeScreen from './screens/HomeScreen';
 import BeerView from './screens/BeerView';
 import FoodView from './screens/FoodView';
+import ProfileView from './screens/ProfileView';
 
 export const Tabs = TabNavigator({
-  HomeScreen: {
-    screen: HomeScreen,
-  },
   BeerView: {
     screen: BeerView,
   },
   FoodView: {
     screen: FoodView,
   },
+  Profile: {
+  	screen: ProfileView
+  }
 });

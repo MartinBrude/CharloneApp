@@ -1,29 +1,6 @@
 import React, { Component } from 'react'
 import ListView from '../components/ListView'
-
-var cervezas = [{
-  title: 'Cervezas',
-  data: [
-    { 
-      "name" : 'Bohemian Pilsener',
-      "photo" : require('../images/bohemian_pilsener.png'),
-      "description" : 'Bohemian Pilsener, una cerveza balanceada, de color dorado intenso. Realizada con lúpulo patagónico, con gran cuerpo y amargor equilibrado',
-      'characteristics' : ''
-    },
-    { 
-      "name" : 'APA',
-      "photo" : require('../images/APA.png'),
-      "description" : 'Cerveza de alta fermentación con un aroma y sabor marcado a lúpulos americanos. Tiene notas cítricas y tiene baja maltosidad.',
-      'characteristics' : ''
-    },
-    { 
-      "name" : 'Saison',
-      "photo" : require('../images/saison.png'),
-      "description" : 'Una cerveza de origen belga, ideal para el calor. La levadura le aporta aroma y sabores frutados y especiados. Por su final seco, da ganas de tomarla sin parar!',
-      'characteristics' : ''
-    }
-  ]
-}];
+import cervezas from '../datasource/Cervezas'
 
 export default class BeerView extends Component {
 
